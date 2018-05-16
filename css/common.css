@@ -1,0 +1,51 @@
+html,body{width:100%;height:100%;}
+#maskMain{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(top,#482405,#2b1402);background:-webkit-linear-gradient(top,#482405,#2b1402);background:-moz-linear-gradient(top,#482405,#2b1402);background:-o-linear-gradient(top,#482405,#2b1402);}
+.rankmain{position:relative;width:13.65rem;height:14.3rem;padding-top:6.15rem;background:url(../images/mainbg.png) no-repeat;background-size:100% 100%;margin:0 auto;margin-top:0.4rem;}
+.weekBest{display:block;position:absolute;top:1.825rem;left:9.05rem;width:3.8rem;height:1.65rem;line-height:1.64rem;color:#fff;font-size:0.95rem;font-family:'SimHei';text-align:center;}
+.rankBox{width:11.85rem;height:13.4rem;margin-left:0.75rem;}
+
+.rankBox-hd ul{width:11.85rem;height:1.4rem;overflow:hidden;}
+.rankBox-hd li{float:left;position:relative;width:100%;height:1.025rem;border-bottom:0.125rem solid #f1bb55;background:#9a938d;border-top-right-radius:0.4rem;border-top-left-radius:0.4rem;line-height:1.12rem;font-size:0.74rem;font-family:'SimHei';color:#fff;text-align:center;}
+.arrow-down{display:none;position:absolute;top:1.12rem;left:50%;margin-left:-0.14rem;width:0;height:0;border-left:0.28rem solid transparent;border-right:0.28rem solid transparent;border-top:0.28rem solid #f1bb55;}
+.rankBox-hd li.on{background:#f1bb55;}
+.rankBox-hd li.on .arrow-down{display:block;}
+.freshen{display:block;width:9.5rem;height:0.55rem;line-height:0.55rem;font-family:'SimHei';text-align:center;background:#dcd5c6;border-radius:0.4rem;margin:0 auto;margin-top:0.12rem;font-size:0.35rem;}
+
+.rankBox-bd{width:11.85rem;height:10.25rem;overflow-y:auto;}
+.ranklist{width:10.15rem;margin:0 auto;padding-bottom:0.4rem;}
+.ranklist li{overflow:hidden;width:100%;height:2.2rem;border-bottom:0.05rem solid #d6c6a1;}
+.ranklist em{float:left;width:1.5rem;height:2.2rem;color:#46423f;line-height:2.2rem;text-align:center;font-size:0.75rem;font-family:'Microsoft YaHei';}
+.ranklist li:nth-child(1) em{background:url(../images/1.png) no-repeat center center;background-size:1.15rem 1.2rem;text-indent:9999px;}
+.ranklist li:nth-child(2) em{background:url(../images/2.png) no-repeat center center;background-size:1.15rem 1.2rem;text-indent:9999px;}
+.ranklist li:nth-child(3) em{background:url(../images/3.png) no-repeat center center;background-size:1.15rem 1.2rem;text-indent:9999px;}
+.ranklist img{float:left;width:1.75rem;height:1.75rem;border-radius:0.25rem;border:0.1rem solid #f39a05;margin-top:0.125rem;}
+.ranklist .namebox{float:right;height:2.2rem;width:6rem;font-size:0.65rem;font-family:'SimHei';color:#696562;}
+.ranklist .namebox p{width:6rem;height:1.1rem;line-height:1.3rem;}
+.ranklist .namebox span{display:block;line-height:0.8rem;color:#ca5108;}
+
+.myrank{width:11.75rem;height:1.05rem;margin:0 auto;margin-top:0.1rem;background:#ffc048;border-radius:0.4rem;font-family:'SimHei';text-align:center;line-height:0.8rem;font-size:0.525rem;color:#1c1d28;}
+.myrankcon{overflow:hidden;display:inline-block;margin:0 auto;}
+.myrank span{float:left;line-height:1.05rem;}
+.myrank em{float:left;font-size:0.825rem;line-height:1.05rem;color:#1c1d28;}
+
+.btnRankBox{width:12.95rem;height:1.65rem;margin:0 auto;margin-top:0.84rem;overflow:hidden;}
+.btnRankBox a{width:5.05rem;height:1.65rem;}
+.btnRankBox a.backRankBtn{float:left;display:none;background:url(../images/backBtn.png) no-repeat; background-size:contain;}
+.btnRankBox a.replayRankBtn{float:left;display:none;background:url(../images/replayBtn.png) no-repeat; background-size:contain;}
+.btnRankBox a.shareRankBtn{float:right;background:url(../images/shareBtn.png) no-repeat; background-size:contain;}
+
+.sharemask{display:none;position:absolute;top:0;left:0;width:100%;height:100%;background:url(../images/sharemask.png) no-repeat center top;background-size:contain;background-color:rgba(0,0,0,0.77); filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr="#c4000000", EndColorStr="#c4000000"); zoom:1;}
+:root .sharemask{filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr="c4000000",EndColorStr="c4000000"); }
+
+.testbtn{width:2.5rem;height:1rem;font-size:0.6rem;}
+
+.endView{background: url(../images/endViewPic.jpg) no-repeat center;position: absolute;top: 0;z-index: 1000;width:750px;height: 1206px;display: none}
+.endView .title{font-size: 79px;display: block;color: #000000;text-align: center;margin: 520px auto 0;width: 556px;height: 108px;line-height: 80px;}
+.endView .gx{font-size:35px;;display: block;color: #5D5045;text-align: center;margin:-20px auto 0;width: 556px;height: 37px;line-height: 20px;letter-spacing:60px}
+.endView .pop-content{width: 556px;height: 110px;font-size: 25px;margin:10px auto 0;text-align: center;color: #5D5045}
+.endView .pop-bottom{width: 250px;margin:-30px auto 0;font-size: 25px;}
+.endView .pop-bottom .code{width: 180px;text-align: center;display: inline-block}
+.endView .pop-bottom .copy{padding-left: 20px;text-decoration: none;cursor: pointer}
+.endView .resetBtn{width: 293px;height: 96px;margin: 50px auto 0;cursor: pointer}
+.endView .shareBtn{width: 293px;height: 96px;margin: 25px auto 0;cursor: pointer}
+.endView .listBtn{width: 293px;height: 96px;margin: 25px auto 0;cursor: pointer}
