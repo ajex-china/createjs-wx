@@ -1,4 +1,6 @@
-
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 export default class WXLoader extends createjs.EventDispatcher {
   constructor(){
     super()

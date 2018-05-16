@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 var Sound = {};
 Sound.init = function ()
 {

@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 var lib = window.lib;
 var images = window.images;
 var Service

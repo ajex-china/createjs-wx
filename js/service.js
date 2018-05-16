@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 var Service = {};
 Service.baseURL = "http://testat.17m3cdn.com/17m3/index.php";
 Service.zhuxiaoURL = "http://testat.17m3cdn.com/17m3/index.php?c=mmzc&m=loginout&d=y2017";

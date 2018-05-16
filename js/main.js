@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 import WXLoader from './WXLoader'
 
 var img,stage,loadPic,selectArea,model,modelData,container,loadingView,gameStartView,gameView,pauseView,selectView,endView,currentView,mainCar,daojishi,stageWidth,stageHeight,stageScale;
@@ -51,7 +54,7 @@ function init() {
     // canvas = document.getElementById("mainView");
   wx.onShareAppMessage()
    stage = new createjs.Stage(canvas);
-  //  stage = new createjs.StageGL(canvas);//开启webgl的时候 需要解开initStageWH方法里的注释
+  //  stage = new createjs.StageGL(canvas);//开启webgl的时候 需要解开initStageWH方法里的注释 webgl开启是矢量元素都不支持 需要额外的cache或者转为位图
 
     container = new createjs.Container();
     stage.addChild(container);

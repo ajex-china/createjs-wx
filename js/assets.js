@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 //var createjs = window.createjs;
 //var lib, images, ss;
 window.lib = window.lib||{};

@@ -1,3 +1,6 @@
+/**
+ * Created by ajex from http://www.ajexoop.com 
+ */
 // createjs.Touch.isSupported = function () {
 //   return true;
 // };
