@@ -1,5 +1,6 @@
 /**
- * Created by ajex from http://www.ajexoop.com 
+ * Created by ajex from http://www.ajexoop.com
+ * versions 0.0.2
  */
 //var createjs = window.createjs;
 //var lib, images, ss;

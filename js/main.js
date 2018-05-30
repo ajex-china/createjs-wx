@@ -1,5 +1,6 @@
 /**
- * Created by ajex from http://www.ajexoop.com 
+ * Created by ajex from http://www.ajexoop.com
+ * versions 0.0.2
  */
 import WXLoader from './WXLoader'
 
@@ -8,7 +9,6 @@ var img,stage,loadPic,selectArea,model,modelData,container,loadingView,gameStart
 // var lib = window.lib;
 // var images = window.images;
 var View = window.View;
-
 
 //showprz宝箱标识 0 无宝箱 1 银宝箱 2 金宝箱
 // var gameid,numid,showprz,wxflag,isShowBox = false,boxDistance = 0,prizeText="",blogText="快点来玩梦梦战车吧！";
@@ -40,13 +40,13 @@ stageHeight = document.documentElement.clientHeight;
 
 //var endPop = document.getElementById("end_pop");
 
-setAssets();
-function setAssets() {
+// setAssets();  //当loadHandleFileLoad不起作用或者不使用时 解开此注释
+// function setAssets() {
 
-  for (var i = 0; i < lib.properties.manifest.length; i++) {
-    images[lib.properties.manifest[i].id] = lib.properties.manifest[i].src;
-  }
-}
+//   for (var i = 0; i < lib.properties.manifest.length; i++) {
+//     images[lib.properties.manifest[i].id] = lib.properties.manifest[i].src;
+//   }
+// }
 
 
 init();
