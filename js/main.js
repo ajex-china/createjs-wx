@@ -1,8 +1,10 @@
 /**
  * Created by ajex from http://www.ajexoop.com
- * versions 0.0.2
+ * versions 0.0.2.1
  */
 import WXLoader from './WXLoader'
+import WXStageGL from './WXStageGL'
+import WXGraphics from './WXGraphics'
 
 var img,stage,loadPic,selectArea,model,modelData,container,loadingView,gameStartView,gameView,pauseView,selectView,endView,currentView,mainCar,daojishi,stageWidth,stageHeight,stageScale;
 // var loadlib = window.loadlib;
@@ -27,70 +29,38 @@ window.boxDistance = 0;
 window.prizeText = "";
 window.blogText = "快点来玩梦梦战车吧！";
 window.arrowStatus = ""
-//img = document.getElementById("img");
-//img.style.left = "0px";
 
 stageWidth =  document.documentElement.clientWidth;
 stageHeight = document.documentElement.clientHeight;
-//loadPic = document.getElementById("loadPic");
-//stageScale = stageHeight/1206;
-//loadPic.style.width =  750*stageScale + 'px';
-//loadPic.style.height = 1206*stageScale + 'px';
-//loadPic.style.left = (stageWidth -  750*stageScale)/2;
-
-//var endPop = document.getElementById("end_pop");
-
-// setAssets();  //当loadHandleFileLoad不起作用或者不使用时 解开此注释
-// function setAssets() {
-
-//   for (var i = 0; i < lib.properties.manifest.length; i++) {
-//     images[lib.properties.manifest[i].id] = lib.properties.manifest[i].src;
-//   }
-// }
-
 
 init();
 function init() {
-    // canvas = document.getElementById("mainView");
+  
   wx.onShareAppMessage()
+  
    stage = new createjs.Stage(canvas);
-  //  stage = new createjs.StageGL(canvas);//开启webgl的时候 需要解开initStageWH方法里的注释 webgl开启是矢量元素都不支持 需要额外的cache或者转为位图
+   //开启webgl的时候 需要解开initStageWH方法里的注释 webgl开启是矢量元素都不支持 需要额外的cache或者转为位图
+  // stage = new WXStageGL(canvas);//使用stagegl需要外部引入StageGL文件 然后直接new 而不是new createjs.WXStageGL()
 
+  
     container = new createjs.Container();
     stage.addChild(container);
     //createjs.Touch.enable(stage);
     initStageWH();
-
-    // var loader = new createjs.LoadQueue(true);
-    // loader.addEventListener("fileload", loadHandleFileLoad);
-    // loader.addEventListener("complete", loadLoadingComplete);
-    // loader.loadManifest(loadlib.properties.manifest);
 
 
     // createjs.Ticker.timingMode =  createjs.Ticker.RAF_SYNCHED;//暂时不支持这种模式 使用这种模式需要修改帧频换算单位
     // createjs.Ticker.setFPS(60);
     createjs.Ticker.framerate = 60;
     createjs.Ticker.addEventListener("tick", stageBreakHandler);
-    console.log(canvas);
   
-    // wx.downloadFile({
-    //   url: "images/_1.png",
-    //   complete: function (data) {
-    //     console.log(data);
-    //     if (data.errMsg) {
-    //       console.log(data.errMsg);
-    //       return;
-    //     }
-    //   }
-    // })
-    // var manager = new LocalAssetsManager()
-    // manager.initImage(lib.properties.manifest);
-  // loadLoadingComplete();
     
     var loader = new WXLoader();
     loader.addEventListener("fileload", handleFileLoad)
-    loader.addEventListener("complete", loadLoadingComplete)
+    loader.addEventListener("complete", loadCompleteHandler)
     loader.load(lib.properties.manifest, true)//暂时只支持单图片加载，sprite的加载模式因为消耗性能实际上也不用支持
+
+    
 }
 //function handleVisibilityChange() {
 //    if (document.hidden) {
@@ -113,24 +83,6 @@ function handleFileLoad(evt) {
       images[evt.item.id] = evt.result;
       // console.log(evt.result)
     }
-}
-function loadLoadingComplete(event){
-    // event.currentTarget.removeEventListener("fileload",handleFileLoad);
-    // event.currentTarget.removeEventListener("complete",loadLoadingComplete);
-    // var queue = event.target;
-    // ss["loading_atlas_P_"] = queue.getResult("loading_atlas_P_");
-    // loadingView = new View.LoadingView();
-    // container.addChild(loadingView);
-    // var loader = new createjs.LoadQueue(true);
-    // loader.installPlugin(createjs.Sound);
-    // loader.addEventListener("fileload", handleFileLoad);
-    // loader.addEventListener("progress",loadProgressHandler);
-    // loader.addEventListener("complete", loadCompleteHandler);
-    // loader.loadManifest(lib.properties.manifest);
-    console.log("complete")
-  loadCompleteHandler();
-
-//    loadPic.style.display='none';
 }
 function playSound(id, loop) {
     createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
@@ -161,13 +113,10 @@ function loadProgressHandler(event)
 }
 function loadCompleteHandler(event)
 {
-    // event.currentTarget.removeEventListener("fileload",handleFileLoad);
-    // event.currentTarget.removeEventListener("progress",loadProgressHandler);
-    // event.currentTarget.removeEventListener("complete",loadCompleteHandler);
+  event.currentTarget.addEventListener("fileload", handleFileLoad)
+  event.currentTarget.addEventListener("complete", loadCompleteHandler)
 
-    // if(loadingView.parent) loadingView.parent.removeChild(loadingView);
-
-    
+   
 
     View.init(container);
     Sound.init();
@@ -178,42 +127,14 @@ function loadCompleteHandler(event)
     pauseView = window.pauseView;
 
 
-    // currentView = gameStartView;
-    // container.addChild(gameStartView);
-    // gameStartView.statusChange("login");
-    // setCookie('17m3_evid', "16", new Date().getTime() + 3600, '/')
-
-//     if(typeof gameid == 'undefined')
-//     {
-//         currentView = gameStartView;
-//         container.addChild(gameStartView);
-//         gameStartView.statusChange("login");
-//     }
-//     else
-//     {
-// //        currentView = gameView;
-// //        GameConfig.gameType = gameid;
-// //        container.addChild(gameView);
-// //        gameView.daojishiStart();
-//         GameConfig.gameType = gameid;
-//         currentView = gameStartView;
-//         container.addChild(gameStartView);
-//         gameStartView.statusChange("start");
-//     }
-//     if(typeof numid != 'undefined')
-//     {
-//         gameStartView.back.txt.text = numid.toString();
-//     }
-
     gameStartView.init();
 
-//    img.src = "images/weixin.jpg";
-//    img.style.width = '1px';
-//    img.style.height = '1px';
-//    FPS.startFPS(stage);
-
-//    EndView.show()
-    // resize();
+    // var g = new WXGraphics();//此代码与本游戏无关 看到的童鞋记一下 安卓要使用shape必须手动传入WXgraphics类
+    // var shape = new createjs.Shape(g);
+    // shape.graphics.setStrokeStyle(3);
+    // shape.graphics.beginStroke("#F00");
+    // shape.graphics.drawRect(0,0,200,200);
+    // stage.addChild(shape);
 }
 function stageBreakHandler(event)
 {
@@ -236,33 +157,4 @@ function initStageWH()
       createjs.Touch.addWXTouch(stage, res.windowWidth, res.windowHeight);
     }
   }) 
-}
- 
-function resize()
-{
-  // var  aa= {};
-  // wx.getScreenBrightness(aa)
-  // console.log(aa);
-    // stageWidth =  document.documentElement.clientWidth;
-    // stageHeight = document.documentElement.clientHeight;
-
-    // canvas.width = stageWidth +20;
-    // canvas.height = stageHeight + 20;
-    // stageScale = stageHeight/1206;
-    // container.scaleX = stageScale;
-    // container.scaleY = stageScale;
-    // container.x = (stageWidth -  750*container.scaleX)/2;
-
-    
-//    $("#end_pop").css("transform","scale(" + stageScale + "deg)");
-//    $("#end_pop").css("-ms-transform","scale(" + stageScale + "deg)");
-//    $("#end_pop").css("-moz-transform","scale(" + stageScale + "deg)");
-//    $("#end_pop").css("-webkit-transform","scale(" + stageScale + "deg)");
-//    $("#end_pop").css("-o-transform","scale(" + stageScale + "deg)");
-//    $("#end_pop").css("left",container.x);
-
-    // $("#end_pop").css({"transform-origin":"0 0","transform":"scale(" + (stageScale + 0.05) + ")","left":container.x})
-
-//    console.log("change",stageWidth,stageHeight);
-
 }

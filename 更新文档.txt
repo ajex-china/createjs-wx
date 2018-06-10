@@ -1,0 +1,12 @@
+2018-06-10 更新
+1.修复了安卓无法使用StageGL的bug，需要导入WXStageGL文件，使用WXStageGL。
+  stage = new WXStageGL(canvas);
+2.修复了安卓无法使用StrokeStyle的bug，需要导入WXGraphics文件，并在shape中传入新的graphics
+    var g = new WXGraphics();
+    var shape = new createjs.Shape(g);
+    shape.graphics.setStrokeStyle(3);
+3.删除了部分无用的文件，代码，注释。
+4.修改了部分文件名与类名
+
+———————————————————————————————————————————————————
+———————————————————————————————————————————————————
